@@ -43,7 +43,23 @@
 
     
     class Counter {
+
+        private $count;
+
+        function __construct($count = 0) {
+            $this->count = $count;
+        }
         
-        
+        function count($n = 1) {
+            $this->count += $n;
+        }
+
+        function get() {
+            return $this->count;
+        }
+
+        function reset() {
+            $this->count = 0;
+        }
 
     }

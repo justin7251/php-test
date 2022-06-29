@@ -19,8 +19,21 @@
      */
 
     
-    function generateSentence(){
-        
-
-
+    function generateSentence($start, $items, $append = null) {
+        $sentence = $start . ':';
+        $count = count($items);
+        if ($count > 0) {
+            foreach ($items as $key => $val) {
+                $sentence .= ($key == $count - 1 ? ' and ' : ($key == 0 ? ' ' : ', ')) . $val;
+                if ($append) {
+                    if (is_array($append)) {
+                        $sentence .= ' ' . $append[$key];
+                    } else {
+                        $sentence .= ' ' . $append;
+                    }
+                }
+            }
+            $sentence .= '.';
+        }
+        return $sentence;
     }

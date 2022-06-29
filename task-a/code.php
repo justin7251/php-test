@@ -18,8 +18,9 @@
      */
     
     
-    function containsWord(){
-        
-
-
+    function containsWord($word, $sentence) {
+        if (preg_match('/\b' . strtolower($word) . '\b/', strtolower($sentence))) {
+            return true;
+        }
+        return false;
     }
